@@ -1,0 +1,87 @@
+if !isdirectory(expand("~/.vim/bundle/vundle"))
+    !mkdir -p ~/.vim/bundle
+    !git clone git://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+    let s:bootstrap=1
+endif
+
+" Vundle plugins
+set rtp+=~/.vim/bundle/vundle
+set nocompatible
+filetype off
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+" Fuzzy file searcher. Useful for finding and opening files quickly
+Plugin 'ctrlpvim/ctrlp.vim'
+" Automatically add closing delimiter (e.g. '' or <>)
+Plugin 'Raimondi/delimitMate'
+" Syntax checking for a multitude of languages
+Plugin 'scrooloose/syntastic'
+" Figures out and sets indentation settings automatically
+Plugin 'tpope/vim-sleuth'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
+if $TERM == "rxvt-unicode"
+    set t_Co=256
+endif
+
+syntax on
+filetype plugin indent on
+
+"Set colorscheme
+colorscheme desert
+if &t_Co == 256
+    set background=dark
+    let g:solarized_termcolors=256
+    colorscheme solarized
+endif
+
+set list!
+set listchars=nbsp:¬,tab:··,trail:·
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+set laststatus=2
+set statusline=%f\ -\ %y\ -\ %l\/%L
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=8
+
+set backspace=indent,eol,start
+
+" For text files set textwidth 80
+autocmd Bufread,BufNewFile *.txt set textwidth=80
+autocmd Bufread,BufNewFile *.md set textwidth=80
+
+" http://vimbits.com/bits/20
+" Reselect visual block after indent/outdent 
+vnoremap < <gv
+vnoremap > >gv
+
+" http://vimbits.com/bits/10
+" Easy split navigation 
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" http://vimbits.com/bits/170
+" Disable paste mode when leaving Insert Mode 
+au InsertLeave * set nopaste
+
+" http://vimbits.com/bits/223
+" Resize splits when the window is resized 
+au VimResized * exe "normal! \<c-w>="
+
+" http://vimbits.com/bits/233
+" Enable persistent undo 
+if exists("+undofile")
+    set udf
+    set undodir=~/.vimundo
+endif
+
+if filereadable(".project.vim")
+    source .project.vim
+endif

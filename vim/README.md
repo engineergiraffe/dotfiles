@@ -1,0 +1,3 @@
+```
+vim +PluginInstall +qall
+```
