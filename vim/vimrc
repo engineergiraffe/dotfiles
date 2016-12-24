@@ -18,6 +18,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 " Figures out and sets indentation settings automatically
 Plugin 'tpope/vim-sleuth'
+" Add jsx syntax highlight
+Plugin 'mxw/vim-jsx'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -53,6 +55,9 @@ set backspace=indent,eol,start
 " For text files set textwidth 80
 autocmd Bufread,BufNewFile *.txt set textwidth=80
 autocmd Bufread,BufNewFile *.md set textwidth=80
+
+" Set highlight to all js files
+let g:jsx_ext_required = 0
 
 " http://vimbits.com/bits/20
 " Reselect visual block after indent/outdent 
