@@ -89,3 +89,5 @@ endif
 if filereadable(".project.vim")
     source .project.vim
 endif
+
+setlocal spell spelllang=en_us
