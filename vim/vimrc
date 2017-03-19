@@ -20,6 +20,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-sleuth'
 " Add jsx syntax highlight
 Plugin 'mxw/vim-jsx'
+" Add typescript support
+Plugin 'leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
