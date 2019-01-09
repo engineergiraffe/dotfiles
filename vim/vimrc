@@ -69,6 +69,11 @@ nnoremap <C-l> <C-w>l
 " Disable paste mode when leaving Insert Mode 
 au InsertLeave * set nopaste
 
+" turn hybrid line numbers on
+:set number relativenumber
+:set nu rnu
+
+
 " http://vimbits.com/bits/223
 " Resize splits when the window is resized 
 au VimResized * exe "normal! \<c-w>="
