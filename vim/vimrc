@@ -33,14 +33,6 @@ endif
 syntax on
 filetype plugin indent on
 
-"Set colorscheme
-colorscheme desert
-if &t_Co == 256
-    set background=dark
-    let g:solarized_termcolors=256
-    colorscheme solarized
-endif
-
 set list!
 set listchars=nbsp:¬,tab:··,trail:·
 highlight NonText guifg=#4a4a59
