@@ -92,5 +92,3 @@ endif
 if has("macunix") && executable("qfind")
     let g:ctrlp_user_command = 'qfind -f %s'
 endif
-
-setlocal spell spelllang=en_us
